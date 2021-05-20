@@ -1,0 +1,13 @@
+---
+- name: Update and install apt packages
+  ansible.builtin.apt:
+    pkg:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    update_cache: yes

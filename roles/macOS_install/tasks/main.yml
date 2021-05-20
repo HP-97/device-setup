@@ -1,0 +1,14 @@
+---
+- name: Install various terminal tools (Update to latest)
+  community.general.homebrew:
+    name:
+      - bat
+      - exa
+      - fd
+      - starship
+      - ripgrep
+      - fish
+      - mpv
+      - xsv
+      - python@3.9
+    state: latest
