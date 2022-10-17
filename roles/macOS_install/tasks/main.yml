@@ -10,5 +10,11 @@
       - fish
       - mpv
       - xsv
-      - python@3.9
+      - python@3.10
+      - neovim
+      - lazygit
     state: latest
+  # Must not run with 'sudo' as homebrew does not allow this
+  become: false
+
+# TODO: Write a task that can automatically set the default shell to fish
