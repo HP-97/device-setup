@@ -11,20 +11,10 @@
     - docker-ce
     - docker-ce-cli
     - containerd.io
+    - neovim
     - ripgrep
     - fd-find
     update_cache: yes
-
-- name: Add specified APT repositories
-  ansible.builtin.apt_repository:
-    repo: "{{ item }}"
-  loop:
-    - "ppa:neovim-ppa/stable"
-
-- name: Update and install custom apt packages
-  ansible.builtin.apt:
-    pkg:
-      - neovim
 
 - name: Ensure that a fd symlink has been created
   ansible.builtin.shell: ln -s $(which fdfind) ~/.local/bin/fd
