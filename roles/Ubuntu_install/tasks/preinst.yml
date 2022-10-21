@@ -1,11 +1,12 @@
 ---
-- name: Add fish stable repository from PPA and install its signing key on Ubuntu target
+# Add all ppa repositories here!
+- name: Add third party repositories into sources list 
   ansible.builtin.apt_repository:
-    repo: 'ppa:fish-shell/release-3'
-
-- name: Add deadsnakes repository into sources list 
-  ansible.builtin.apt_repository:
-    repo: 'ppa:deadsnakes/ppa'
+    repo: 
+  loop:
+    - 'ppa:fish-shell/release-3'
+    - 'ppa:deadsnakes/ppa'
+    - "ppa:neovim-ppa/stable"
 
 - name: Add Docker Apt signing key
   ansible.builtin.apt_key:
