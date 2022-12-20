@@ -1,10 +1,14 @@
 ---
+- name: Install homebrew 
+  ansible.builtin.shell: NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  become: false
+
 - name: Install various terminal tools (Update to latest)
   community.general.homebrew:
     name:
       - bat
       - exa
-      - fd
+      - fd 
       - starship
       - ripgrep
       - fish
@@ -13,8 +17,10 @@
       - python@3.10
       - neovim
       - lazygit
+      - stow
     state: latest
   # Must not run with 'sudo' as homebrew does not allow this
   become: false
 
 # TODO: Write a task that can automatically set the default shell to fish
+# - name: hello
