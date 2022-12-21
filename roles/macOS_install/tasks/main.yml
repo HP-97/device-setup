@@ -22,5 +22,15 @@
   # Must not run with 'sudo' as homebrew does not allow this
   become: false
 
-# TODO: Write a task that can automatically set the default shell to fish
-# - name: hello
+- name: Install homebrew cask tools (Update to latest)
+  community.general.homebrew:
+    name:
+      - homebrew/cask/rectangle
+    state: latest
+  become: false
+
+- name: Checkout the HP-97 config info
+  ansible.builtin.git:
+    repo: https://github.com/HP-97/Configs
+    dest: ~/Configs
+
